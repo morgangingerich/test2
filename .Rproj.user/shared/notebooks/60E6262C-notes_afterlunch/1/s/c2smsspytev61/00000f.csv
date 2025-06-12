@@ -1,0 +1,3 @@
+"0","#Exercise 3: Select all columns of the dataset that start with the character string ""P"""
+"0","iris|>"
+"0","  select(starts_with(""P""))"

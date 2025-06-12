@@ -1,0 +1,3 @@
+"0","#Exercise 1; select the first three columns of the iris dataset using their column names"
+"0","iris|>"
+"0","  select(Sepal.Length,Sepal.Width,Petal.Length)"

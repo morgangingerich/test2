@@ -1,0 +1,3 @@
+"0","#Exercise 2: Select all the columns of the iris dataset except ""Petal Width"""
+"0","iris|>"
+"0","  select(!Petal.Width)"

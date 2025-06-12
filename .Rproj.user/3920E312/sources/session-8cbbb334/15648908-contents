@@ -1,0 +1,74 @@
+---
+title: "Exercises"
+format: html
+---
+
+```{r}
+#Exercise 1: Select the first three columns of the iris dataset using their column names
+iris|>
+  select(Sepal.Length,Sepal.Width,Petal.Length)
+```
+
+```{r}
+#Exercise 2: Select all the columns of the iris dataset except "Petal Width"
+iris|>
+  select(!Petal.Width)
+```
+
+```{r}
+#Exercise 3: Select all columns of the dataset that start with the character string "P"
+iris|>
+  select(starts_with("P"))
+```
+
+```{r}
+#Exercise 4: Filter the rows of the iris dataset for Sepal.Length>= 4.6 and Petal.Width>=0.5
+iris|>
+  filter(Sepal.Length>=4.6&Petal.Length>=0.5)
+```
+
+```{r}
+#Exercise 5: Pipe the iris data frame to the function that will select two columns (Sepal.Width and Sepal.Length). I'm not sure the purpose of this one? 
+iris|>
+  select(Sepal.Length,Sepal.Width)|>
+  head()
+```
+
+```{r}
+#Exercise 6: Arrange rows by a particular column, such as Sepal.Width
+iris|>
+  arrange(Sepal.Width)
+
+```
+
+```{r}
+#Exercise 7: Select three columns and arrage the rows by Sepal.Length, then by Sepal.Width. This arranges based on length first, and then for any nondistinct lengths, it arranges with width
+iris|>
+  select(Species,Sepal.Length,Sepal.Width)|>
+  arrange(Sepal.Length,Sepal.Width)
+```
+
+```{r}
+#Exercise 8: Create a new column called proportion, which is the ratio of Sepal.Length to Sepal.Width (I also moved this column with the .after argument)
+iris|>
+  mutate(proportion = Sepal.Length/Sepal.Width,
+         .after=Sepal.Width
+  )
+```
+
+```{r}
+#Exercise 9: Compute the average number of Sepal.Length and call it avg_slength
+iris|>
+  summarize(avg_slength=mean(Sepal.Length))
+```
+
+```{r}
+#Exercise 10: Split the iris data frame by the Sepal.Length, then ask for the same summary statistics as above.I also don't quite understand the point of this one, since there is no min max or average for one number... it's all the same.
+iris|>
+  group_by(Sepal.Length)|>
+  summarize(avg_slength=mean(Sepal.Length),
+            min_slength=min(Sepal.Length),
+            max_slength=max(Sepal.Length),
+            total=n()
+  )
+```

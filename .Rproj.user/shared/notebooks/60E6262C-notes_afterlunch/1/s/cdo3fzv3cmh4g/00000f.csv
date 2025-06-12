@@ -1,0 +1,4 @@
+"0","#Exercise 5: Pipe the iris data frame to the function that will select two columns (Sepal.Width and Sepal.Length)"
+"0","iris|>"
+"0","  select(Sepal.Length,Sepal.Width)|>"
+"0","  head()"

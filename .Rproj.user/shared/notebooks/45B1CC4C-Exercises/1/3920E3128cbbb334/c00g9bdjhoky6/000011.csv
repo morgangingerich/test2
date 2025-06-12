@@ -1,0 +1,3 @@
+"0","#Exercise 9: Compute the average number of Sepal.Length"
+"0","iris|>"
+"0","  summarize(avg_slength=mean(Sepal.Length))"

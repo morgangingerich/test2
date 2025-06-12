@@ -1,0 +1,5 @@
+"0","#Exercise 8: Create a new column called proportion, which is the ratio of Sepal.Length to Sepal.Width (I also moved this column)"
+"0","iris|>"
+"0","  mutate(proportion = Sepal.Length/Sepal.Width,"
+"0","         .after=Sepal.Width"
+"0","  )"

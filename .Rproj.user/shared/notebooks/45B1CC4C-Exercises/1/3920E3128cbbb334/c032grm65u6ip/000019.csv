@@ -1,0 +1,8 @@
+"0","#Exercise 10: Split the iris data frame by the Sepal.Length, then ask for the same summary statistics as above"
+"0","iris|>"
+"0","  group_by(Sepal.Length)|>"
+"0","  summarize(avg_slength=mean(Sepal.Length),"
+"0","            min_slength=min(Sepal.Length),"
+"0","            max_slength=max(Sepal.Length),"
+"0","            total=n()"
+"0","  )"
