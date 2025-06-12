@@ -1,0 +1,8 @@
+"0","#random graph to explore data visualization techniques"
+"0","airquality|>"
+"0","  ggplot(aes(x=Temp,y=Ozone))+"
+"0","  geom_point()+"
+"0","  geom_smooth(method=""lm"",se=TRUE)+"
+"0","  labs("
+"0","    title=""Temperature and Ozone Levels"","
+"0",")"

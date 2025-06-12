@@ -1,0 +1,4 @@
+"0",""
+"0","#find all unique ozone and temperature pairs"
+"0","airquality |>"
+"0","  distinct(Ozone,Temp)"

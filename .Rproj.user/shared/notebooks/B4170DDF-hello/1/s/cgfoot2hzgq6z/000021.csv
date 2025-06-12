@@ -1,0 +1,4 @@
+"0",""
+"0","#lastly, if you want to instead find the number of occurances, use count() instead"
+"0","airquality |>"
+"0","  count(Ozone,Temp,sort=TRUE)"

@@ -1,0 +1,5 @@
+"0","airquality |>"
+"0","  mutate("
+"0","    random = Temp - Ozone,"
+"0","    random2 = Ozone - Temp * 2"
+"0","  )"

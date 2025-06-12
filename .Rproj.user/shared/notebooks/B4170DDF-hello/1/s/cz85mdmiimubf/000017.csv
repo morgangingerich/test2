@@ -1,0 +1,6 @@
+"0","#selecting rows with ozone greater than 25, making a new variable called weather that takes into account windchill (and placing it after temp variable), hiding solar radiation so we don't have to look at that, and arranging in descending ""weather"""
+"0","airquality |>"
+"0","  filter(Ozone>25)|>"
+"0","  mutate(weather = Temp - Wind, .after = Temp)|>"
+"0","  select(!Solar.R)|>"
+"0","  arrange(desc(weather))"

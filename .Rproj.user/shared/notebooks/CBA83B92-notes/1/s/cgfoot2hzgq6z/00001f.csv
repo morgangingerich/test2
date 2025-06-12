@@ -1,0 +1,4 @@
+"0",""
+"0","#if you want to keep other columns open when filtering for unique rows, use this"
+"0","airquality |>"
+"0","  distinct(Ozone,Temp,.keep_all = TRUE)"

@@ -1,0 +1,7 @@
+"0","#by default, mutate() places the new columns on the right-hand side of the data set which can sometimes be hard to see. we can use the .before argument to add the variables to the left-hand side"
+"0","airquality |>"
+"0","  mutate("
+"0","    random = Temp - Ozone,"
+"0","    random2 = Ozone - Temp *2,"
+"0","    .before = 1"
+"0","  )"

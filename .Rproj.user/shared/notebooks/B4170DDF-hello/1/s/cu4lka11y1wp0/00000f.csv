@@ -1,0 +1,8 @@
+"0","#| label: fig-airquality"
+"0","#| fig-cap: ""Temperature and ozone level."""
+"0","#| warning: false"
+"0",""
+"0","library(ggplot2)"
+"0","ggplot(airquality, aes(Temp, Ozone)) + "
+"0","  geom_point() + "
+"0","  geom_smooth(method = ""loess"")"

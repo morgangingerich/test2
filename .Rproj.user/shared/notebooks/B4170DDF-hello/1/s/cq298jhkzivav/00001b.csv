@@ -1,0 +1,6 @@
+"0","#group by month, and summarize average ozone"
+"0","airquality|>"
+"0","  group_by(Month)|>"
+"0","  summarize("
+"0","    Average_Ozone = mean(Ozone, na.rm = TRUE)"
+"0","  )"
