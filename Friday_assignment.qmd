@@ -1,0 +1,40 @@
+---
+title: "Friday_assignment"
+format: html
+---
+
+```{r}
+#Reading example 1 and using spec to investigate column types
+library("readr")
+library("tidyverse")
+example<-read_csv("may_25_example1.csv")
+spec(example)
+
+#The date and site columns default to characters, though date should be in date format and site should be a factor. this can be manipluated later
+```
+
+```{r}
+#Reading example 3
+read_csv("may_25_example3.csv")
+```
+
+```{r}
+#1. Reading all files as one big dataset
+#2. dataset
+
+example_files<-c("may_25_example1.csv","may_25_example2.csv","may_25_example3.csv")
+read_csv(example_files)
+
+#Using combined dataset to explore overrides
+#3. All as character
+read_csv(
+  example_files,
+  col_types = cols(.default = col_character())
+)
+
+#4. All as double
+read_csv(
+  example_files,
+  col_types = cols(.default = col_double())
+)
+```
