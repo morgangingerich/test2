@@ -1,0 +1,78 @@
+---
+title: "Mon_Lubridate"
+format: html
+---
+
+# R-Bloggers Exercises Pt2 (Dates):
+
+```{r}
+#Exercise 1: Parsing the given time as date-time format
+dt<-("Apr,11th 2018 17:00")
+mdy_hm(dt)
+```
+
+```{r}
+#Exercise 2: Parse given time as date-time format
+dt<-("2018/04/11 17:00")
+ymd_hm(dt)
+```
+
+```{r}
+#Exercise 3: Parse the given time as date-time format
+dt<-("11.4.2018 17")
+dmy_h(dt)
+```
+
+```{r}
+#Exercise 4: Use lubridate to parse convoluted times into date-time format
+dt<-("Wed apr 11th 2018 at 7pm")
+mdy_h(dt)
+```
+
+```{r}
+#Exercise 5: How do you parse the 110th day of 2018?
+as.Date(109,origin="2018-1-1")
+#I used 109 since the origin cannot be set at the "zeroth" day of Jan, meaning the 110th day of 2018 is 109 days after Jan 1
+```
+
+```{r}
+#Exercise 6: Suppose you have two strings: "1 2018" and "3 2018" which represent the first and third quarter respectively. Parse these times using lubridate
+quarter_string<-c("1 2018","3 2018")
+date<- parse_date_time(quarter_string, "q-Y")
+print(date)
+```
+
+```{r}
+#Exercise 7: Parse the 10th week of 2018 using lubridate
+year_week_string<-"2018-10-1"
+date_from_week<- parse_date_time(year_week_string, "Y-W-u")
+print(date_from_week)
+```
+
+## Tuesday 9/17 Lubridate Practice Pt 2
+
+```{r}
+library("readr")
+library("tidyverse")
+example<-read_csv("may_25_example1.csv", col_types = cols(
+  date = col_date("%m/%d/%Y"), # Specify date column
+  val = col_double(), #Specifying double column
+  site = col_factor() #Specify factor column
+))
+example
+
+write_rds(example,"may_25_example1.csv")#Writing the set as an rds to save the column changes so I don't have to do it every time going forward
+```
+
+```{r}
+#Adding columns to separate year, month, day, and month/day
+example<-read_rds("may_25_example1.csv")
+example|>
+  select(date:day)|>
+  mutate(
+    year = year(date),
+    month = month(date),
+    day = day(date),
+    month_day = paste(example$month,example$day,sep = '_')
+  )
+```
