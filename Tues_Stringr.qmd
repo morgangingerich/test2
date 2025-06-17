@@ -1,0 +1,78 @@
+---
+title: "Tues_Stringr"
+format: html
+---
+
+## Tuesday Stringr Practice Exercises
+
+```{r}
+#Exercise 1: Normalize the addresses vector by replacing capital letters with lowercase ones
+addresses <- c("14 Pine Street, Los Angeles", "152 Redwood Street, Seattle", "8 Washington Boulevard, New York")
+
+str_to_lower(addresses)
+
+#Exercise 2: Pull only the numeric part of the addresses vector
+str_extract(addresses,pattern="[:digit:]+")
+
+#Exercise 3: Split the addresses vector into address and city
+str_split(addresses,pattern=",",simplify=TRUE)
+
+#Exercise 4: Now split it into 3 parts: house number, street, and city
+str_split(addresses,pattern="{[:digit:](?=[:blank:])}"|",")
+#Unsure of how to do, but does not seem too important for our use
+
+```
+
+```{r}
+#Exercise 5: Find sentences that start with the letter "T" or end with "s". If the sentence both starts with T and ends in s, show both the first and last words
+long_sentences <- stringr::sentences[1:10]
+str_extract_all(long_sentences, pattern= "^T[A-z]+|[A-z]+s\\.$")
+
+#Exercise 6: Show only the first 20 characters of all sentences in the vector. To indicate that you removed some characters, use two consecutive periods at the end of each sentence
+str_trunc(long_sentences,width=22, ellipsis = "..") #Use width of 22 to account for the ellipsis
+
+#Exercise 7: Normalize the products vector by removing all unnecessary white spaces and by capitalizing all letters
+products <- c("TV","laptop","portable charger","Wireless Keyboard","HeadPhones")
+str_to_upper(str_squish(products))
+
+```
+
+```{r}
+#Exercise 8: Prepare the field names vector for display by replacing all the underscores with spaces and convering it to title-case
+field_names<-c("order_number","order_date","customer_email","product_title","amount")
+str_to_title(str_replace_all(field_names,pattern="_"," "))
+
+#Exercise 9: Align all the field names to be equal length by adding whitespace to the beginning of the relevant strings
+str_pad(field_names,width=max(str_length(field_names)),side="left")
+
+```
+
+```{r}
+#Exercise 10: In the employee skills vector, look for employees that are "pro" or "medium". Your output should be a matrix with employee name in the first column and the skill level without parenthesis in the second column. Employees that are not qualified should get missing values in both columns
+
+employee_skills<-c("John Bale (Beginnger)","Rita Murphy (Pro)","Chris White (Pro)","Sarah Reid (Medium)")
+str_match(employee_skills,pattern="([A-z ]*)\\((Pro|Medium)\\)")[,2:3]
+
+#Note to self: first argument means any letter with a space after it, then the \\pro or med argument makes groups basically, which excludes beginners. then the [,2:3] makes it only display the name and experience column, excluding the full "name (experience)" column
+```
+
+### Using Stringr to manipulate example csvs
+
+```{r}
+library("readr")
+library("tidyverse")
+example<-read_rds("may_25_example1.csv")
+example|>
+  select(date:day)|>
+  mutate(
+    year = year(date),
+    month = month(date),
+    day = day(date),
+    month_day = paste(example$month,example$day,sep = '/')
+  )
+
+```
+
+```{r}
+
+```
